@@ -3,7 +3,7 @@
 int countLine(char l[]);
 void reverseLine(char to[], char from[], int len);
 
-main()
+int main()
 {
 	int len;
   char list[100];
@@ -29,7 +29,6 @@ int countLine(char l[])
 		l[i] = c;
 		++i;
 	}
-//	l[i] = '\0';
 	return i;
 }
 
