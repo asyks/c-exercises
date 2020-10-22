@@ -1,13 +1,13 @@
 # include <stdio.h>
 
-/* copy input ot output; 2nd version*/
+/* copy input ot output*/
 
-main()
+int main()
 {
 	int c;
-	char end_of_file;
-
-	while((c = getchar()) != EOF)
+	while((c = getchar()) != EOF) {
 		putchar(c);
+  }
 
+  return 0;
 }
