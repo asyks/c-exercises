@@ -10,7 +10,7 @@ int getoneline(void);
 void copy(void);
 
 
-main()
+int main()
 {
 	int len;
 	extern int max;
@@ -20,10 +20,11 @@ main()
 	while ((len = getoneline()) > 0)
 		if (len > max) {
 			max = len;
-			copy;
 		}
+
 	if (max > 0)
 		printf("%s", longest);
+
 	return 0;
 }
 

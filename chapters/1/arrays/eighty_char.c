@@ -6,7 +6,7 @@ int getLine(char line[]);
 int copy(char to[], char from[], int spot);
 
 /* print longest input line */
-main()
+int main()
 {
 	int len;		/* curent line length */
 	int lines;		/* number of lines whose length is > 80 */
@@ -21,6 +21,7 @@ main()
 		}
 	if (lines > 0)	/* there was a line */
 		printf("eighty character lines: %d\n %s \n", lines, longest);
+
 	return 0;
 }
 
@@ -39,7 +40,7 @@ int getLine(char s[])
 	return i;
 }
 
-/* copy 'from' into 'to'; assume to is big enough */
+/* copy 'from' into 'to'; assume 'to' is big enough */
 int copy(char to[], char from[], int s)
 {
 	int i;

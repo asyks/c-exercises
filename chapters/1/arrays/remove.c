@@ -3,7 +3,7 @@
 
 int countLine(char l[]);
 
-main()
+int main()
 {
 	int len;
   char list[MAXLINE];
@@ -16,9 +16,8 @@ main()
 
 int countLine(char l[])
 {
-	int i, b, c;
+	int i, c;
 
-	b = ' ';
 	for (i = 0; (c=getchar()) != EOF && c != '\n'; ++i) {
 		if (c == '\t') {
 			c = ' ';
