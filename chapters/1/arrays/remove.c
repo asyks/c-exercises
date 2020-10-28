@@ -1,29 +1,20 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-int countLine(char l[]);
-
+/* replace tabs with spaces */
 int main()
 {
-	int len;
-  char list[MAXLINE];
-
-	while ((len=countLine(list)) > 0) {
-		printf("%s \n", list);
-	}
-	return 0;
-}
-
-int countLine(char l[])
-{
-	int i, c;
-
-	for (i = 0; (c=getchar()) != EOF && c != '\n'; ++i) {
+  int c;
+  while((c = getchar())) {
+    if (c == EOF) {
+      break;
+    }
 		if (c == '\t') {
-			c = ' ';
+			putchar(' ');
 		}
-		l[i] = c;
-	}
-	l[i] = '\0';
-	return i;
+    else {
+			putchar(c);
+    }
+  }
+  return 0;
 }
