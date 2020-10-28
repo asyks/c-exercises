@@ -1,47 +1,41 @@
 #include <stdio.h>
 
-int countLine(char l[]);
+int readLine(char lineArray[]);
 void reverseLine(char to[], char from[], int len);
 
 int main()
 {
-	int len;
-  char list[100];
-	char reverse[100];
+  int lenFrom;
+  char forwardArray[100];
+  char reverseArray[100];
 
-	while ((len=countLine(list)) > 0) {
-		reverseLine(reverse, list, len);
-		printf("%s \n", reverse);
-	}
-	return 0;
+  while ((lenFrom = readLine(forwardArray)) > 0) {
+	  reverseLine(reverseArray, forwardArray, lenFrom);
+  }
+  printf("%s\n", reverseArray);
+  return 0;
 }
 
-int countLine(char l[])
+int readLine(char lineArray[])
 {
-	int i, c;
-
+  int i;
+  int c;
 	for (i = 0; (c=getchar()) != EOF && c != '\n'; ++i) {
-		if (c == ' ' || c == '\b')
-			l[i] = ' ';
-		l[i] = c;
-	}
-	if (c == '\n') {
-		l[i] = c;
-		++i;
-	}
-	return i;
+    lineArray[i] = c;
+  }
+  return i;
 }
 
-void reverseLine(char to[], char from[], int len)
+void reverseLine(char to[], char from[], int lenFrom)
 {
-	int i, n;
-
-  i = 0;
-	while ((n = len - i) > 0) {
-		if (from[n] == '\n' || from[n] == '\0')
-			;
-		else
-			to[i] = from[n];
-		++i;
-	}
+  int indexFrom;
+  int indexReverse;
+  int indexTo = 0;
+  for (indexFrom = 0; indexFrom <= lenFrom; ++indexFrom) {
+    indexReverse = lenFrom - indexFrom;
+    if (from[indexReverse] != '\n' && from[indexReverse] != '\0') {
+    to[indexTo] = from[indexReverse];
+      ++indexTo;
+    }
+  }
 }
