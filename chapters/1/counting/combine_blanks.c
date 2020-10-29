@@ -1,12 +1,10 @@
 # include <stdio.h>
 
-main()
+/* combine sequential empty characters */
+int main()
 {
-
 	int c;
-	int b;
-
-	b = '\0'; // '\0' is the null operator
+	int b = '\0'; /* '\0' is the null operator */
 	while ((c = getchar()) != EOF) {
 		if(c == ' ') {
 			b = c;
@@ -17,5 +15,5 @@ main()
 			b = '\0';
 		}
 	}
-
+  return 0;
 }
