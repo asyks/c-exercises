@@ -3,9 +3,9 @@
 # define IN 1
 # define OUT 0
 
-main()
+/* count the number of input characters, words, and newlines */
+int main()
 {
-
 	int c, nl, nw, nc, state;
 
 	state = OUT;
@@ -24,5 +24,5 @@ main()
 		}
 	}
 	printf("%d %d %d \n", nl, nw, nc);
-
+  return 0;
 }
