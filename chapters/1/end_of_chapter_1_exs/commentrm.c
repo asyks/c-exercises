@@ -2,7 +2,7 @@
 
 int rmcomments(void);
 
-main() {
+int main() {
 	while (rmcomments() != 0);
 	return 0;
 }
