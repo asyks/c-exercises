@@ -1,33 +1,34 @@
 #include <stdio.h>
 
+#define MAXSIZE 1000
+
 void makeline(char s[]);
 int atoi(char s[]);
 
-main() {
-	int i;
-	char s[1000];
-	makeline(s);
-	i = atoi(s);
-	printf("%d\n\0", i);
+int main() {
+  char s[MAXSIZE];
+  int integer;
+  makeline(s);
+  integer = atoi(s);
+  printf("%d\n", integer);
+  return 0;
 }
 
+/* collects an array of input characters until newline or EOF encountered */
 void makeline(char s[]) {
-	int i, c;
-	for (i = 0; (c=getchar()) != EOF && c != '\n'; ++i) {
-		s[i] = c;
-	}
-	if (c == '\n') {
-		s[i] = c;
-		++i;
-	}
-	s[i] = '\0';
+  int index;
+  int currentChar;
+  for (index = 0; (currentChar=getchar()) != EOF && currentChar != '\n'; ++index) {
+    s[index] = currentChar;
+  }
 }
 
+/* converts character array of integer digits to its integer representation */
 int atoi(char s[]) {
-	int i, n;
-	n = 0;
-	for (i = 0; s[i] >= '0' && s[i] <= '9'; ++i) {
-		n = 10 * n + (s[i] - '0');
-	}
-	return n;
+  int index;
+  int integer = 0;
+  for (index = 0; s[index] >= '0' && s[index] <= '9'; ++index) {
+    integer = 10 * integer + (s[index] - '0');
+  }
+  return integer;
 }
