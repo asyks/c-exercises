@@ -2,33 +2,23 @@
 #include <ctype.h>
 #define MAX 100
 
-int checkval();
-int gethexadecimals ();
+int isHexadecimal(char c);
 
-main () {
-	while(gethexadecimals() != 0);
-}
-
-int checkval () {
-	unsigned int i, c;
-	int line[MAX];
-	for (i=0; (c = getchar()) != EOF && c != '\n'; ++i) {
-		line[i] = c;		
-	}
-	printf("%d\n\0", line - '0');	
+int main () {
+  char c;
+  char line[MAX];
+  int n = 0;
+  while ((c=getchar()) && isHexadecimal(c)) {
+    line[n++] = c;
+  }
+  line[n] = '\0';  /* Append null character so string is properly terminated */
+  printf("%s\n", line);
   return 0;
 }
 
-int gethexadecimals () {
-	int i, n;
-	char c;
-  char line[MAX];
-	for (n=i=0; (c=getchar()) != EOF; ++i) {
-			putchar(c);
-		if (isdigit(c) || (c>='a' && c<='f') || (c>='A' && c<='F')) {
-			line[n++] = c;	
-		}		
-	}
-	printf("%s\n\0", line);	
+int isHexadecimal (char c) {
+  if (isdigit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+    return 1;
+  }
   return 0;
 }
