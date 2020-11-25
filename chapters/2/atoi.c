@@ -28,6 +28,9 @@ int atoi(char s[]) {
   int index;
   int integer = 0;
   for (index = 0; s[index] >= '0' && s[index] <= '9'; ++index) {
+    if (index == 0 && s[index] == '0') {
+      continue;
+    }
     integer = 10 * integer + (s[index] - '0');
   }
   return integer;
