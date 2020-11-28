@@ -2,6 +2,7 @@
 
 #define MAX 100
 
+/* Convert all uppercase characters in the input to lowercase characters*/
 int main () {
   char line[MAX];
   int c;
