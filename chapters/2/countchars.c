@@ -6,6 +6,7 @@
 
 int countChars();
 
+/* Count the number of characters in the input line */
 int main () {
 	int i;
 
