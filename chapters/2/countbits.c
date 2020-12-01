@@ -16,7 +16,7 @@ int main (int argc, char *argv[]) {
   return 0;
 }
 
-/* converts character array of integer digits to its integer representation */
+/* Cast character array (string) to integer */
 unsigned int atoi(char s[]) {
   unsigned int index;
   unsigned int integer = 0;
@@ -30,7 +30,7 @@ unsigned int atoi(char s[]) {
   return integer;
 }
 
-/* count the number of 1 bits used to store the integer */
+/* Count the number of 1 bits used to store the integer */
 int countOneBits (unsigned int integer) {
   unsigned int mask = 1;
   unsigned int bitCount = 0;
