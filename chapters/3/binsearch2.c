@@ -4,13 +4,14 @@ int getlist(int out[], int ilist[]);
 int binsearch(int find, int list[], int len);
 int convertargs(int len, char argv[], int ilist[]);
 
-int main(char argv[1]) {
+int main(int argc, char *argv[1]) {
 	int x, r, n, out[2], ilist[100];
 	while (getlist(out, ilist) != 0);
 	x = out[0];	
 	n = out[1];	
 	r = binsearch(x, ilist, n);
 	printf("%d\n", r);
+  return 0;
 }
 
 int getlist(int out[], int ilist[]) {

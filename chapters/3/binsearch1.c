@@ -5,7 +5,7 @@ int getlist(int out[], int ilist[]);
 int binsearch(int find, int list[], int len);
 int convertargs(int len, char argv[], int ilist[]);
 
-int main(char argv[1]) {
+int main(int argc, char *argv[1]) {
 	int x, r, n, out[2], ilist[100];
 	clock_t start, stop;
 	double t = 0.0;
@@ -18,6 +18,7 @@ int main(char argv[1]) {
 	stop = clock();
 	t = (double)(stop-start)/CLOCKS_PER_SEC;
 	printf("run time: %f\n", t);
+  return 0;
 }
 
 int getlist(int out[], int ilist[]) {

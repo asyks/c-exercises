@@ -16,7 +16,7 @@ int main() {
 	}
   trim(s);
   len = strlen(s);
-  printf("%s\n %d\n", s, len);
+  printf("string: %s\nlen: %d\n", s, len);
 	return 1;
 }
 

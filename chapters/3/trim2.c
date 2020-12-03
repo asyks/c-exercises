@@ -13,7 +13,7 @@ int main() {
 		n = 10 * n + (c - '0');
 	}
   len = trim(s, t);
-  printf("%s\n %d\n", t, len);
+  printf("string: %s\nlen: %d\n", t, len);
 	return 1;
 }
 
