@@ -1,54 +1,57 @@
 #include <stdio.h>
 
-int getlist(int out[], int ilist[]);
-int binsearch(int find, int list[], int len);
-int convertargs(int len, char argv[], int ilist[]);
+#define NUM_ARGS 1
+#define SEARCH_STRING_MAX 10
+#define MAX 100
 
-int main(char argv[1]) {
-	int x, r, n, out[2], ilist[100];
-	while (getlist(out, ilist) != 0);
-	x = out[0];	
-	n = out[1];	
-	r = binsearch(x, ilist, n);
-	printf("%d\n", r);
+void getString(char s[]);
+void atoia (char s[], int a[]);
+int binsearch(int find, int list[], int len);
+
+int main(int argc, char *argv[NUM_ARGS]) {
+  int search[SEARCH_STRING_MAX];
+  char targetString[MAX];
+  int targetArray[MAX];
+
+  atoia(argv[1], search);
+  getString(targetString);
+  atoia(targetString, targetArray);
+
+  printf("%d\n", argc);
+
+  return 0;
 }
 
-int getlist(int out[], int ilist[]) {
-	int c, i;
-	for (i=0; (c=getchar()) != EOF && c != '\n'; ++i) {
-		if (i == 0) {
-			out[0] = c;
-		} 
-		ilist[i] = c - 0;
+void getString (char string[]) {
+	int character;
+  int index = 0;
+
+	while ((character=getchar()) != EOF && character != '\n') {
+		string[index++] = character;
 	}
-	out[1] = i;
-	return 0;
+  string[index] = '\0';
+}
+
+/* Cast character array (string) to integer array */
+void atoia (char string[], int array[]) {
+  int index = 0;
+
+  while(string[index] != '\0') {
+    array[index] = string[index] - '0';
+  }
 }
 
 int binsearch(int x, int v[], int n) {
-	int low, high;
-	low = 0;
-	high = n - 1;
+	int low = 0;
+	int high = n - 1;
+
 	while (low <= high) {
 		if (x < v[high]) {
-			high -= 1;
-		}
-		else
-			return high;
-	}
-	return -1;
-}
-
-int convertargs(int len, char argv[], int ilist[]) {
-	int x, i;
-	for (i=1; i < len - 1; ++i) {
-		printf("%d\n", (argv[i] - 0));
-		if (i == 1) {
-			x = (argv[i] - 0);
+			--high;
 		}
 		else {
-			ilist[i] = (argv[i] - 0);	
-		}
+			return high;
+    }
 	}
-	return x;
+	return -1;
 }
