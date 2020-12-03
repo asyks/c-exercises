@@ -6,6 +6,7 @@ int atoi(char s[]);
 void itoa(int n, char s[]);
 void reverse(char s[]);
 
+/* Convert an integer to a character array */
 int main(int argc, char *argv[1]) {
   int integer;
   char string[100];
@@ -43,6 +44,7 @@ void itoa(int integer, char string[]) {
   reverse(string);
 }
 
+/* Reverse a character array */
 void reverse(char s[]) {
 	int c, i, j;
 	for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
